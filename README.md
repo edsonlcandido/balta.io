@@ -4,7 +4,7 @@ Repositorio criado para fazer os desafios da plataforma balta.io
 
 ## 2806-Desafio (Acesso à dados com .NET, C#, Dapper e SQL Server)
 
-- Cadastrar um usuário
+- [x] ~Cadastrar um~ CRUD usuários
 - Cadastrar um perfil
 - Vincular um perfil a um usuário
 - Cadastrar uma categoria

@@ -23,7 +23,7 @@ namespace Blog.Screens.TagScreens
             short option;
             if (!short.TryParse(input, out option))
             {
-                Load();
+                MenuTagScreen.Load();
                 return;
             }
 

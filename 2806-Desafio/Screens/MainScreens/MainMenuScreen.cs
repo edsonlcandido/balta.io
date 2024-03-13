@@ -35,6 +35,9 @@ namespace Blog.Screens.MainScreens
 
             switch (option)
             {
+                case 1:
+                    UserScreens.MenuUserScreen.Load();
+                    break;
                 case 4:
                     TagScreens.MenuTagScreen.Load();
                     break;
