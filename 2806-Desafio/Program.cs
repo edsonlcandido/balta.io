@@ -1,12 +1,12 @@
-﻿using System;
-using Blog.Screens.TagScreens;
+﻿using Blog.Screens.TagScreens;
 using Microsoft.Data.SqlClient;
+using System;
 
 namespace Blog
 {
-    class Program
+    internal class Program
     {
-        private const string CONNECTION_STRING = @"Server=localhost,1433;Database=Blog;User ID=sa;Password=1q2w3e4r@#$";
+        private const string CONNECTION_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\candided\OneDrive - Howden Group Ltd\Visual Studio Projects\Balta.io\2806-Desafio\blog.mdf"";Integrated Security=True;Connect Timeout=30";
 
         static void Main(string[] args)
         {
