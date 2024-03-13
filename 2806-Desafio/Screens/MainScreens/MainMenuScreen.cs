@@ -41,6 +41,9 @@ namespace Blog.Screens.MainScreens
                 case 2:
                     RoleScreens.MenuRoleScreen.Load();
                     break;
+                case 3:
+                    CategoryScreens.MenuCategoryScreen.Load();
+                    break;
                 case 4:
                     TagScreens.MenuTagScreen.Load();
                     break;
