@@ -1,3 +1,4 @@
+using Blog.Screens.MainScreens;
 using System;
 
 namespace Blog.Screens.TagScreens
@@ -15,9 +16,16 @@ namespace Blog.Screens.TagScreens
             Console.WriteLine("2 - Cadastrar tags");
             Console.WriteLine("3 - Atualizar tag");
             Console.WriteLine("4 - Excluir tag");
+            Console.WriteLine("0 - Menu inicial");
             Console.WriteLine();
             Console.WriteLine();
-            var option = short.Parse(Console.ReadLine());
+            var input = Console.ReadLine();
+            short option;
+            if (!short.TryParse(input, out option))
+            {
+                Load();
+                return;
+            }
 
             switch (option)
             {
@@ -33,7 +41,10 @@ namespace Blog.Screens.TagScreens
                 case 4:
                     DeleteTagScreen.Load();
                     break;
-                default: Load(); break;
+                case 0:
+                    MainMenuScreen.Load();
+                    break;
+                default: MainMenuScreen.Load(); break;
             }
         }
     }
