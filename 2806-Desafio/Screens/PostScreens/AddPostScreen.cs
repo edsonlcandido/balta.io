@@ -23,12 +23,20 @@ namespace Blog.Screens.PostScreens
             var summary = body.ToSummary();
 
             //selecione a categoria
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("Lista de categorias");
+            Console.WriteLine("-----------------");
             ListCategoryScreen.List();
 
             Console.Write("Selecione o Id da categoria: ");
             var categoryId = Console.ReadLine();
 
             //selecione o autor
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("Lista de autores");
+            Console.WriteLine("-----------------");
             ListUserScreen.List();
 
             Console.Write("Selecione o Id do autor: ");

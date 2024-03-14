@@ -52,6 +52,9 @@ namespace Blog.Screens.MainScreens
                 case 5:
                     PostScreens.AddPostScreen.Load();
                     break;
+                case 6:
+                    UserScreens.MenuManageRoleScreen.Load();
+                    break;
                 case 0:
                     Environment.Exit(0);
                     break;
