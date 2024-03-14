@@ -17,7 +17,7 @@ namespace Blog.Screens.UserScreens
             MenuUserScreen.Load();
         }
 
-        private static void List()
+        public static void List()
         {
             var repository = new Repository<User>(Database.Connection);
             var users = repository.Get();

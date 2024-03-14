@@ -16,7 +16,7 @@ namespace Blog.Screens.CategoryScreens
             MenuCategoryScreen.Load();
         }
 
-        private static void List()
+        public static void List()
         {
             var repository = new Repository<Category>(Database.Connection);
             var categories = repository.Get();

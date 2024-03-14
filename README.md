@@ -7,11 +7,11 @@ Repositorio criado para fazer os desafios da plataforma balta.io
 - [x] ~Cadastrar um~ CRUD usuários
 - [x] ~Cadastrar um~ CRUD perfil
 - Vincular um perfil a um usuário
-- ~Cadastrar uma~ CRUD categoria
+- [x] ~Cadastrar uma~ CRUD categoria
 - [x] Cadastrar uma tag
   - Converter o nome para um slug html
 - [x] Editar uma tag
-   - Trazer as infos da tag
+  - Trazer as infos da tag
 - [x] Excluir uma tag
 - ~Cadastrar um~ CRUD post
 - Vincular um post a uma tag
