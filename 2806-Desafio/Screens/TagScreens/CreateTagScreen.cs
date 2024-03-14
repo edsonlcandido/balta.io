@@ -14,8 +14,27 @@ namespace Blog.Screens.TagScreens
             Console.Write("Nome: ");
             var name = Console.ReadLine();
 
-            Console.Write("Slug: ");
-            var slug = Console.ReadLine();
+            Console.Write("Slug: {0}", name.ToSlug());
+            //se a tecla apertada for o backspace apaga verdadeiro
+            const char BACKSPACE = (char)8;
+            var key = Console.ReadKey();
+            string slug;
+
+            if (key.KeyChar == BACKSPACE)
+            {
+                //preenche na linha e permite editar o slug
+                Console.SetCursorPosition(0, Console.CursorTop);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.SetCursorPosition(0, Console.CursorTop);
+                Console.Write("Slug: ");
+                slug = Console.ReadLine();
+            }
+            else
+            {
+                slug = name.ToSlug();
+                Console.WriteLine("");
+            }
+            
 
             Create(new Tag
             {
