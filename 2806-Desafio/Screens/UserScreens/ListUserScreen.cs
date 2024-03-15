@@ -2,6 +2,7 @@
 using Blog.Repositories;
 using Blog.Screens.TagScreens;
 using System;
+using System.Linq;
 
 namespace Blog.Screens.UserScreens
 {
@@ -19,10 +20,17 @@ namespace Blog.Screens.UserScreens
 
         public static void List()
         {
-            var repository = new Repository<User>(Database.Connection);
-            var users = repository.Get();
+            var repository = new UserRepository(Database.Connection);
+            var users = repository.GetWithRoles();
+            //transformar a lista de roles em uma string
+            
             foreach (var item in users)
-                Console.WriteLine($"{item.Id} - {item.Name} - Funções: ... ");
+            {               
+                var roles = string.Join(", ", item.Roles.Select(r=>r.Name));                
+                Console.WriteLine($"{item.Id} - {item.Name} - Funções: {roles} ");
+            }
+
+                
         }
     }
 }

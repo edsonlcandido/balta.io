@@ -14,12 +14,47 @@ namespace Blog.Screens.TagScreens
             Console.WriteLine("-------------");
             Console.Write("Id: ");
             var id = Console.ReadLine();
+            var repository = new Repository<Tag>(Database.Connection);
+            var tag = repository.Get(int.Parse(id));
+            Console.Write("Nome: {0}", tag.Name);
+            //se a tecla apertada for o backspace apaga verdadeiro
+            const char BACKSPACE = (char)8;
+            var key = Console.ReadKey();
+            string name;
 
-            Console.Write("Nome: ");
-            var name = Console.ReadLine();
+            if (key.KeyChar == BACKSPACE)
+            {
+                //preenche na linha e permite editar o slug
+                Console.SetCursorPosition(0, Console.CursorTop);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.SetCursorPosition(0, Console.CursorTop);
+                Console.Write("Nome: ");
+                name = Console.ReadLine();
+            }
+            else
+            {
+                name = tag.Name;
+                Console.WriteLine("");
+            }
+            Console.Write("Slug: {0}", tag.Slug);
+            //se a tecla apertada for o backspace apaga verdadeiro
+            var slugKey = Console.ReadKey();
+            string slug;
 
-            Console.Write("Slug: ");
-            var slug = Console.ReadLine();
+            if (key.KeyChar == BACKSPACE)
+            {
+                //preenche na linha e permite editar o slug
+                Console.SetCursorPosition(0, Console.CursorTop);
+                Console.Write(new string(' ', Console.WindowWidth));
+                Console.SetCursorPosition(0, Console.CursorTop);
+                Console.Write("Slug: ");
+                slug = Console.ReadLine();
+            }
+            else
+            {
+                slug = tag.Slug;
+                Console.WriteLine("");
+            }
 
             Update(new Tag
             {

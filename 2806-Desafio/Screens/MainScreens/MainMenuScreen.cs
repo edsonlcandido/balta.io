@@ -21,9 +21,8 @@ namespace Blog.Screens.MainScreens
             Console.WriteLine("4 - Gestão de tag");
             Console.WriteLine("5 - Adicionar postagem");
             Console.WriteLine("6 - Vincular perfil/usuário");
-            Console.WriteLine("7 - Vincular post/categoria");
-            Console.WriteLine("8 - Vincular post/tag");
-            Console.WriteLine("9 - Relatórios");
+            Console.WriteLine("7 - Vincular post/tag");
+            Console.WriteLine("8 - Relatórios");
             Console.WriteLine("0 - Sair");
             Console.WriteLine();
             Console.WriteLine();
@@ -54,6 +53,9 @@ namespace Blog.Screens.MainScreens
                     break;
                 case 6:
                     UserScreens.MenuManageRoleScreen.Load();
+                    break;
+                case 8:
+                    ReportScreens.MenuReportScreen.Load();
                     break;
                 case 0:
                     Environment.Exit(0);

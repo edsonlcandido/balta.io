@@ -35,6 +35,9 @@ namespace Blog.Screens.UserScreens
                     UserId = int.Parse(userId)
                 }
             );
+
+            Console.ReadKey();
+            MenuManageRoleScreen.Load();
         }
 
         private static void Add(UserRole userRole)
