@@ -13,7 +13,7 @@ namespace Blog.Screens.UserScreens
             Console.WriteLine("O que deseja fazer?");
             Console.WriteLine();
             Console.WriteLine("1 - Adicionar função");
-            Console.WriteLine("2 - Remover função");
+            Console.WriteLine("* - Remover função");
             Console.WriteLine("0 - Menu inicial");
             Console.WriteLine();
             Console.WriteLine();
