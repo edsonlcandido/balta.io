@@ -48,5 +48,41 @@ namespace Blog.Repositories
 
             return users;
         }
+
+        public User GetWithRoles(int id)
+        {
+            var query = @"
+                SELECT
+                    [User].*,
+                    [Role].*
+                FROM
+                    [User]
+                    LEFT JOIN [UserRole] ON [UserRole].[UserId] = [User].[Id]
+                    LEFT JOIN [Role] ON [UserRole].[RoleId] = [Role].[Id]
+                WHERE
+                    [User].[Id] = @Id";
+
+            var users = new List<User>();
+
+            var items = _connection.Query<User, Role, User>(
+                query,
+                (user, role) =>
+                    {
+                        var usr = users.FirstOrDefault(x => x.Id == user.Id);
+                        if (usr == null)
+                        {
+                            usr = user;
+                            if (role != null)
+                                usr.Roles.Add(role);
+
+                            users.Add(usr);
+                        }
+                        else
+                            usr.Roles.Add(role);
+
+                        return user;
+                    }, new { Id = id }, splitOn: "Id");
+            return users.FirstOrDefault();
+        }
     }
 }

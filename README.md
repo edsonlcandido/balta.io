@@ -10,7 +10,7 @@ Repositorio criado para fazer os desafios da plataforma balta.io
 	- remover um perfil de um usuário
 - [x] ~Cadastrar uma~ CRUD categoria
 - [x] Cadastrar uma tag
-  - [x] Converter o nome para um slug html
+	- [x] Converter o nome para um slug html
 - [x] Editar uma tag
   - [x] Trazer as infos da tag
 - [x] Excluir uma tag
