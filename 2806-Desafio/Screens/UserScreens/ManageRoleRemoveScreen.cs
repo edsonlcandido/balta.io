@@ -21,9 +21,9 @@ namespace Blog.Screens.UserScreens
                 "Selecione o Id do autor: ");
             var userId = Console.ReadLine();
             Console.WriteLine("");
-            Console.WriteLine("Lista de funções do usuário");
-            Console.WriteLine("-----------------");
-            ListRoleScreen.List();
+            //Console.WriteLine("Lista de funções do usuário");
+            //Console.WriteLine("-----------------");
+            ListRoles(int.Parse(userId));
             Console.WriteLine("Selecione o Id da função: ");
             var roleId = Console.ReadLine();
             Remove(new UserRole
@@ -39,8 +39,8 @@ namespace Blog.Screens.UserScreens
         {
             try
             {
-                var repository = new Repository<UserRole>(Database.Connection);
-                repository.Delete(userRole);
+                var repository = new UserRoleRepository(Database.Connection);
+                repository.DeleteRole(userRole);
                 Console.WriteLine("Função removida com sucesso!");
             }
             catch (Exception ex)
@@ -49,5 +49,14 @@ namespace Blog.Screens.UserScreens
                 Console.WriteLine(ex.Message);
             }
         }
+        private static void ListRoles(int userId)
+        {
+            var repository = new UserRepository(Database.Connection);
+            var user = repository.GetWithRoles(userId);
+            Console.WriteLine($"Funções do usuário {user.Name}");
+            foreach (var role in user.Roles)
+                Console.WriteLine($"{role.Id} - {role.Name}");
+        }
+
     }
 }
