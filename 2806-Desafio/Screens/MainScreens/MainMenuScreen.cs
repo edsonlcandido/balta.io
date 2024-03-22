@@ -54,6 +54,9 @@ namespace Blog.Screens.MainScreens
                 case 6:
                     UserScreens.MenuManageRoleScreen.Load();
                     break;
+                case 7:
+                    PostScreens.MenuPostTagScreen.Load();
+                    break;
                 case 8:
                     ReportScreens.MenuReportScreen.Load();
                     break;

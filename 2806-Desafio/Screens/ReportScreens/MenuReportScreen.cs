@@ -17,10 +17,10 @@ namespace Blog.Screens.ReportScreens
             Console.WriteLine("O que deseja fazer?");
             Console.WriteLine();
             Console.WriteLine("* - Relatório Categoria (Quant. posts)");
-            Console.WriteLine("* - Relatório Tags (Quan. posts)");
+            Console.WriteLine("* - Relatório Tags (Quant. posts)");
             Console.WriteLine("* - Relatório Posts da categoria");
             Console.WriteLine("4 - Relatório Posts - categoria");
-            Console.WriteLine("* - Relatório Posts - tags");
+            Console.WriteLine("5 - Relatório Posts - tags");
             Console.WriteLine("0 - Menu inicial");
             Console.WriteLine();
             Console.WriteLine();
@@ -47,7 +47,7 @@ namespace Blog.Screens.ReportScreens
                     PostCategoryReportScreen.Load();
                     break;
                 case 5:
-                    //PostsTagsReportScreen.Load();
+                    PostsTagsReportScreen.Load();
                     break;
                 case 0:
                     MainMenuScreen.Load();

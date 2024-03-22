@@ -19,7 +19,7 @@ namespace Blog.Screens.ReportScreens
 
         }
 
-        private static void List()
+        internal static void List()
         {
             var repository = new PostRepository(Database.Connection);
             var posts = repository.GetWithCategoryAuthor();

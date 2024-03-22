@@ -48,5 +48,37 @@ namespace Blog.Repositories
 
             return posts.ToList();
         }
+
+        public List<Post> GetWithTags()
+        {
+            var query = @"
+                    SELECT [Post].*,
+		                    [Tag].*
+                    FROM [PostTag]
+                        LEFT JOIN [Post] ON [PostTag].[PostId] = [Post].[Id]
+                        LEFT JOIN [Tag] ON [PostTag].[TagId] = [Tag].[Id]";
+
+            var posts = new List<Post>();
+
+            var items = _connection.Query<Post, Tag, Post>(
+                query,
+                (post, tag) =>
+                {
+                    var p = posts.FirstOrDefault(x => x.Id == post.Id);
+                    if (p == null)
+                    {
+                        p = post;
+                        if (tag != null)
+                            p.Tags.Add(tag);
+
+                        posts.Add(p);
+                    }
+                    else
+                        p.Tags.Add(tag);
+                    return post;
+                },
+                splitOn: "Id");
+            return posts;
+        }
     }
 }

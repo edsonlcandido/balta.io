@@ -18,7 +18,7 @@ Repositorio criado para fazer os desafios da plataforma balta.io
 	- [x] converter o titulo para um slug html
 	- [x] vincular um post a uma categoria
 	- [x] adicionar o resumo do post
-- Vincular um post a uma tag
+- [x] Vincular um post a uma tag
 - [x] Listar os usuários (Nome, Email e perfis separados por virgula)
 - Listar categorias com quantidade de posts
 - Listar tags com quantidade de posts

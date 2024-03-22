@@ -16,7 +16,7 @@ namespace Blog.Screens.TagScreens
             MenuTagScreen.Load();
         }
 
-        private static void List()
+        internal static void List()
         {
             var repository = new Repository<Tag>(Database.Connection);
             var tags = repository.Get();
