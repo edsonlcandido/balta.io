@@ -35,7 +35,7 @@ namespace Blog.Screens.ReportScreens
             switch (option)
             {
                 case 1:
-                    //CategoryReportScreen.Load();
+                    CategoryReportScreen.Load();
                     break;
                 case 2:
                     //TagsReportScreen.Load();
