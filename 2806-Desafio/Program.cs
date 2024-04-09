@@ -3,8 +3,6 @@ using Microsoft.Data.SqlClient;
 using System;
 using System.IO;
 using Blog.Screens.MainScreens;
-using Microsoft.Extensions.Configuration;
-using Blog.Repositories;
 
 namespace Blog
 {
@@ -30,9 +28,32 @@ namespace Blog
             Database.Connection = new SqlConnection(CONNECTION_STRING);
             Database.Connection.Open();
 
-            var repository = new PostRepository(Database.Connection);
-            var posts = repository.GetWithTags();
+            var query = @"
+                SELECT [Post].*,
+                    [Tag].*
+                FROM [PostTag]
+                    LEFT JOIN [Post] ON [Post].[Id] = [PostTag].[PostId]
+                    LEFT JOIN [Tag] ON [Tag].[Id] = [PostTag].[TagId]";
 
+            var posts = new List<Post>();
+
+            var items = Database.Connection.Query<Post, Tag, Post>(
+                    query,
+                    (post, tag) =>
+                    {
+                        var p = posts.FirstOrDefault(x => x.Id == post.Id);
+                        if (p == null)
+                        {
+                            p = post;
+                            if (tag != null)
+                                p.Tags.Add(tag);
+                            posts.Add(post);
+                        }
+                        else
+                        p.Tags.Add(tag);
+                        return p;
+                    },
+                    splitOn: "Id");
 
             MainMenuScreen.Load();
 

@@ -6,7 +6,8 @@ namespace Blog.Models
     [Table("[Post]")]
     public class Post
     {
-        public Post() {
+        public Post()
+        {
             Tags = new List<Tag>();
         }
         public int Id { get; set; }
@@ -20,7 +21,6 @@ namespace Blog.Models
         public Category Category { get; set; }
         [Write(false)]
         public User Author { get; set; }
-
         [Write(false)]
         public List<Tag> Tags { get; set; }
     }
