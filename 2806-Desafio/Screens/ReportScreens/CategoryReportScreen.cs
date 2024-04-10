@@ -9,7 +9,7 @@ namespace Blog.Screens.ReportScreens
         internal static void Load()
         {
             Console.Clear();
-            Console.WriteLine("Relatório de posts | categoria");
+            Console.WriteLine("Relatório de Categorias (quant. posts)");
             Console.WriteLine("-------------");
             List();
             Console.WriteLine("");
@@ -21,11 +21,11 @@ namespace Blog.Screens.ReportScreens
 
         private static void List()
         {
-            var repository = new PostRepository(Database.Connection);
-            var posts = repository.GetWithCategoryAuthor();
-            foreach (var item in posts)
+            var repository = new CategoryRepository(Database.Connection);
+            var categoriesPost = repository.GetCategoryPosts();
+            foreach (var item in categoriesPost)
             {
-                Console.WriteLine($"Post: {item.Id}. {item.Title} - Categoria: {item.Category.Name} - Autor: {item.Author.Name}");
+                Console.WriteLine($"{item.CategoryName} ({item.PostCount})");
             }
         }
     }

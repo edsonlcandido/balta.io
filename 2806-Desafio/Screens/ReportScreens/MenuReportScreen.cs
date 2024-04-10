@@ -16,7 +16,7 @@ namespace Blog.Screens.ReportScreens
             Console.WriteLine("--------------");
             Console.WriteLine("O que deseja fazer?");
             Console.WriteLine();
-            Console.WriteLine("* - Relatório Categoria (Quant. posts)");
+            Console.WriteLine("1 - Relatório Categoria (Quant. posts)");
             Console.WriteLine("* - Relatório Tags (Quant. posts)");
             Console.WriteLine("* - Relatório Posts da categoria");
             Console.WriteLine("4 - Relatório Posts - categoria");
