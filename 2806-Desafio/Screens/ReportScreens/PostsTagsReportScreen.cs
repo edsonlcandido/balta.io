@@ -1,5 +1,6 @@
 ﻿using Blog.Repositories;
 using System;
+using System.Linq;
 
 namespace Blog.Screens.ReportScreens
 {
@@ -22,8 +23,8 @@ namespace Blog.Screens.ReportScreens
             var posts = repository.GetWithTags();
             foreach (var item in posts)
             {
-                //var roles = string.Join(", ", item.Roles.Select(r => r.Name));
-                Console.WriteLine($"{item.Title} - Tags: []");
+                var tags = string.Join(", ", item.Tags.Select(r => r.Name));
+                Console.WriteLine($"{item.Title} - Tags: [{tags}]");
             }
         }
     }
